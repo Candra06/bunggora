@@ -1,5 +1,5 @@
 <?php
-define('BASEURL', 'http://localhost/bunggora/public/');
+define('BASEURL', 'http://localhost/bunggora/');
 
 define('HOST', 'localhost');
 define('USER', 'root');

@@ -16,9 +16,15 @@
 
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Data Guru</h4>
+                <h4 class="card-title"><?= $data['judul']?></h4>
                 <a href="<?= BASEURL; ?>Guru/add" class="btn btn-info"> <i class="fa fa-plus"></i> Tambah Data</a>
-                <div class="table-responsive m-t-40">
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-12">
+                        <?php Flasher::flash(); ?>
+                    </div>
+                </div>
+                <div class="table-responsive m-t-10">
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>

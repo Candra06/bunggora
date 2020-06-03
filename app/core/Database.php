@@ -54,8 +54,29 @@ class Database{
     $this->stmt->bindValue($param, $value, $type);
   }
 
+  public function Insert($data, $table = '')
+  {
+    $q = "INSERT INTO ". ($table == '' ? $this->table : $table) ." (".implode(',', array_keys($data)).") VALUES(:".implode(', :', array_keys($data)).")";
+    $this->executeInsert($q, $data);
+    return true;
+  }
+
+  public function lastInsertId()
+  {
+    $q = $this->dbh->prepare("SELECT LAST_INSERT_ID()");
+    $q->execute();
+    $lastID = $q->fetchColumn();
+    return $lastID;
+  }
+
   public function execute(){
     $this->stmt->execute();
+  }
+
+  public function executeInsert($q, $data=[])
+  {
+    $this->stmt = $this->dbh->prepare($q);
+    $this->stmt->execute($data);
   }
 
   public function resultSet()

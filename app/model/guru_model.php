@@ -16,17 +16,24 @@ class guru_model{
 
     public function addDataGuru($data)
     {
-        $query = "INSERT INTO ".$this->table."(nip, nama, telepon, alamat, status) VALUES ( :nip, :nama, :telepon, :alamat, :status)";
-        $this->db->query($query);
-        $this->db->bind('nip', $data['nip']);
-        $this->db->bind('nama', $data['nama']);
-        $this->db->bind('telepon', $data['telepon']);
-        $this->db->bind('alamat', $data['alamat']);
-        $this->db->bind('status', $data['status']);
+        $this->db->Insert(
+            ['username' => $data['email'], 
+            'password'=> md5($data['password']), 
+            'level' => 'guru', 
+            'status' => $data['status']], 'akun');
+        
+        $id = $this->db->lastInsertId();
 
-        $this->db->execute();
-
-        return $this->db->rowCount();
+        $add = $this->db->Insert([
+            'id_akun' => $id,
+            'nip' => $data['nip'],
+            'nama' => $data['nama'],
+            'telepon' => $data['telepon'],
+            'alamat' => $data['alamat'],
+            'status' => $data['status'],
+        ], $this->table);        
+        
+        return $add;
     }
 }
 ?>

@@ -12,7 +12,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?= BASEURL;?>images/favicon.png">
     <title>Bunggora</title>
     <link href="<?= BASEURL;?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= BASEURL;?>plugins/c3-master/c3.min.css" rel="stylesheet">
     <link href="<?= BASEURL;?>css/style.css" rel="stylesheet">
     <link href="<?= BASEURL;?>css/colors/green.css" id="theme" rel="stylesheet">
 
@@ -27,16 +26,20 @@
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon -->
-                        <b>
-
-                            <img src="<?= BASEURL; ?>images/logo-light-icon.png" class="light-logo" />
-                        </b>
-                        <span>
-
-                         <!-- Light Logo text -->
-                         <img src="<?= BASEURL; ?>images/logo-light-text.png" class="light-logo" /></span> </a>
+                  <a class="navbar-brand" href="index.html">
+                      <!-- Logo icon --><b>
+                          <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                          <!-- Dark Logo icon -->
+                          <img src="<?= BASEURL;?>images/logo-icon.png" alt="homepage" class="dark-logo" />
+                          <!-- Light Logo icon -->
+                          <img src="<?= BASEURL;?>images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                      </b>
+                      <!--End Logo icon -->
+                      <!-- Logo text --><span>
+                       <!-- dark Logo text -->
+                       <img src="<?= BASEURL;?>images/logo-text.png" alt="homepage" class="dark-logo" />
+                       <!-- Light Logo text -->
+                       <img src="<?= BASEURL;?>images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto mt-md-0">
@@ -55,8 +58,8 @@
                                         <div class="dw-user-box">
                                             <div class="u-img"><img src="<?= BASEURL; ?>images/users/profile.png" alt="user"></div>
                                             <div class="u-text">
-                                                <h4>Steave Jobs</h4>
-                                                <p class="text-muted">varun@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <h4><?= $data['nama'] ?></h4>
+                                                <p class="text-muted"><?= $data['email'] ?></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>

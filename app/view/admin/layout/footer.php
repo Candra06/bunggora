@@ -13,30 +13,13 @@
 <script src="<?= BASEURL;?>js/waves.js"></script>
 <!--Menu sidebar -->
 <script src="<?= BASEURL;?>js/sidebarmenu.js"></script>
-<!--stickey kit -->
-<script src="<?= BASEURL;?>plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-<script src="<?= BASEURL;?>plugins/sparkline/jquery.sparkline.min.js"></script>
-<!--stickey kit -->
-<script src="<?= BASEURL;?>plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-<script src="<?= BASEURL;?>plugins/sparkline/jquery.sparkline.min.js"></script>
-<script src="<?= BASEURL;?>plugins/sparkline/jquery.sparkline.min.js"></script>
 <!--Custom JavaScript -->
 <script src="<?= BASEURL;?>js/custom.min.js"></script>
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->
 <!--c3 JavaScript -->
-<script src="<?= BASEURL;?>plugins/d3/d3.min.js"></script>
-<script src="<?= BASEURL;?>plugins/c3-master/c3.min.js"></script>
-<!-- Vector map JavaScript -->
-<script src="<?= BASEURL;?>plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="<?= BASEURL;?>plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
 <script src="<?= BASEURL;?>js/dashboard2.js"></script>
-<!-- ============================================================== -->
-<!-- Style switcher -->
-<!-- ============================================================== -->
-<script src="<?= BASEURL;?>plugins/styleswitcher/jQuery.style.switcher.js"></script>
-
 <!-- This is data table -->
 <script src="<?= BASEURL;?>plugins/datatables/jquery.dataTables.min.js"></script>
 <!-- end - This is for export functionality only -->

@@ -49,7 +49,7 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label">Status</label>
-                                  <select required class="form-control custom-select">
+                                  <select required class="form-control custom-select" name="status">
                                       <option value="">Pilih Status</option>
                                       <option value="aktif">Aktif</option>
                                       <option value="banned">Banned</option>
