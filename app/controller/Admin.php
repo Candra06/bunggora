@@ -13,7 +13,7 @@ class Admin extends Controller
     $data['email'] = $_SESSION['email'];
     $this->view('admin/layout/theme', $data);
     $this->view('admin/index', $data);
-    $this->view('admin/layout/footer');
+    $this->view('admin/layout/footer', $data);
    }else{
     Flasher::setFlash('Harap login sebagai admin', '', 'danger');
     header('Location: '. BASEURL . 'Home');

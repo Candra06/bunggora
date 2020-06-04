@@ -1,24 +1,25 @@
 <?php
 
-class Kelas extends Controller{
+class Mapel extends Controller{
 
     public function index()
     {
-        $data['judul'] = 'Data Kelas';
-        $data['kelas'] = $this->model('kelas_model')->getData();
+        $data['judul'] = 'Data Mapel';
         $data['nama'] = 'Admin';
+        // $data['email'] = $_SESSION['nama'];
+        $data['mapel'] = $this->model('mapel_model')->getData();
         $this->view('admin/layout/theme', $data);
-        $this->view('admin/kelas/index', $data);
+        $this->view('admin/mapel/index', $data);
         $this->view('admin/layout/footer');
     }
     
     public function add()
     {
-        $data['judul'] = 'Data Kelas';
-        $data['kelas'] = $this->model('kelas_model')->getData();
+        $data['judul'] = 'Tambah Data Siswa';
         $data['nama'] = 'Admin';
+        // $data['email'] = $_SESSION['email'];
         $this->view('admin/layout/theme', $data);
-        $this->view('admin/kelas/add', $data);
+        $this->view('admin/mapel/add', $data);
         $this->view('admin/layout/footer');
     }
 
@@ -36,22 +37,25 @@ class Kelas extends Controller{
         # code...
     }
 
-    public function delete()
+    public function delets()
     {
         # code...
     }
 
     public function store()
     {
-        if ($this->model('kelas_model')->addDataKelas($_POST) > 0) {
-            Flasher::setFlash('Data kelas berhasil', 'ditambahkan', 'success');
-            header('Location: '. BASEURL . 'Kelas');
+        if ($this->model('mapel_model')->addDataMapel($_POST) > 0) {
+            Flasher::setFlash('Data mapel berhasil', 'ditambahkan', 'success');
+            header('Location: '. BASEURL . 'Mapel');
             exit;
           }else {
-            Flasher::setFlash('Data kelas gagal', 'ditambahkan', 'danger');
-            header('Location: '. BASEURL . 'Kelas');
+            Flasher::setFlash('Data mapel gagal', 'ditambahkan', 'danger');
+            header('Location: '. BASEURL . 'Mapel');
             exit;
           }
+        // var_dump($_POST);
     }
+
+
 }
 ?>

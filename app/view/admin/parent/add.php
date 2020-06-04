@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item">Siswa</li>
+                    <li class="breadcrumb-item">Wali Murid</li>
                     <li class="breadcrumb-item active">Tambah Data</li>
                 </ol>
             </div>
@@ -20,34 +20,28 @@
               <h4 class="m-b-0 text-white">Tambah Data</h4>
           </div>
           <div class="card-body">
-              <form action="<?= BASEURL;?>Siswa/store" method="post">
+              <form action="<?= BASEURL;?>Parents/store" method="post">
                   <div class="form-body">
                       <h3 class="card-title">Info Pribadi</h3>
                       <hr>
                       <div class="row p-t-20">
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label class="control-label">NIS</label>
-                                  <input required type="text" name="nis" class="form-control" placeholder="Masukkan NIS">
+                                  <label class="control-label">Nama Wali</label>
+                                  <input required type="text" name="nama_ortu" class="form-control" placeholder="Masukkan nama wali">
 
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label class="control-label">Nama</label>
-                                  <input required type="text" name="nama" class="form-control" placeholder="Masukkan nama lengkap">
-
-                              </div>
-                          </div>
-                          <div class="col-md-6">
-                              <div class="form-group">
-                                  <label class="control-label">Kelas</label>
-                                  <select required name="id_kelas" class="form-control custom-select">
-                                      <option value="">Pilih Kelas</option>
-                                    <?php foreach ($data['kelas'] as $kl) {?>
-                                        <option value="<?= $kl['id']?>"><?= $kl['tingkatan'].''.$kl['nama_kelas']?></option>
+                                  <label class="control-label">Nama Wali</label>
+                                  <select required name="id_siswa" class="form-control custom-select">
+                                      <option value="">Pilih Siswa</option>
+                                    <?php foreach ($data['siswa'] as $kl) {?>
+                                        <option value="<?= $kl['id']?>"><?= $kl['nama']?></option>
                                     <?php } ?>
                                   </select>
+
                               </div>
                           </div>
                           <div class="col-md-6">
@@ -67,14 +61,6 @@
                                   </select>
                               </div>
                           </div>
-
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label">Alamat</label>
-                                    <textarea name="alamat" required class="form-control" rows="4" cols="80"></textarea>
-                                </div>
-                            </div>
 
                       </div>
 

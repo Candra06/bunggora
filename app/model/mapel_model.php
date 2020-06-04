@@ -1,7 +1,7 @@
 <?php
 
-class kelas_model{
-    private $table = 'kelas';
+class mapel_model{
+    private $table = 'mapel';
     private $db;
 
     public function __construct()
@@ -11,15 +11,15 @@ class kelas_model{
 
     public function getData()
     {
-        $this->db->query('SELECT * FROM '. $this->table);
+        $this->db->query('SELECT * FROM '.$this->table.'');
         return $this->db->resultSet();
     }
 
-    public function addDataKelas($data)
+    public function addDataMapel($data)
     {
         $add = $this->db->Insert([
-            'nama_kelas' => $data['rombel'],
-            'tingkatan' => $data['tingkatan'],
+            'nama_mapel' => $data['mapel'],
+            'golongan' => $data['golongan'],
         ], $this->table);        
         
         return $add;

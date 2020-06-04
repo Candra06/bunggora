@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active">Siswa</li>
+                    <li class="breadcrumb-item active">Kelas</li>
                 </ol>
             </div>
 
@@ -16,8 +16,8 @@
 
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Data Siswa</h4>
-                <a href="<?= BASEURL; ?>Siswa/add" class="btn btn-info"> <i class="fa fa-plus"></i> Tambah Data</a>
+                <h4 class="card-title"><?= $data['judul']?></h4>
+                <a href="<?= BASEURL; ?>Kelas/add" class="btn btn-info"> <i class="fa fa-plus"></i> Tambah Data</a>
                 <br>
                 <br>
                 <div class="row">
@@ -29,27 +29,28 @@
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>NIS</th>
-                                <th>Nama</th>
+                                <th>#</th>
+                                <th>Rombel</th>
                                 <th>Kelas</th>
-                                <th>Telepon</th>
-                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($data['siswa'] as $dt) {
+                          <?php 
+                          $no = 1;
+                          foreach ($data['kelas'] as $dt) {
                               ?>
 
                             <tr>
-                                <td><?= $dt['nis']?></td>
-                                <td><?= $dt['nama']?></td>
-                                <td><?= $dt['tingkatan'] .''.$dt['nama_kelas']?></td>
-                                <td><?= $dt['telepon']?></td>
-                                <td><span class="label <?=  $dt['status'] == 'aktif' ? 'label-success' : 'label-danger' ?>"><?= $dt['status']?></span></td>
+                                <td><?= $no?></td>
+                                <td><?= $dt['nama_kelas']?></td>
+                                <td><?= $dt['tingkatan']?></td>
+                                
                                 <td> <a class="btn btn-info" href="#"> <i class="fa fa-pencil"></i> Edit</a> </td>
                             </tr>
-                            <?php } ?>
+                            <?php 
+                        $no++;
+                        } ?>
 
                             <!-- <tr>
                                 <td>182410101012</td>

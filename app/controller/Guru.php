@@ -10,15 +10,16 @@ class Guru extends Controller
     $data['judul'] = 'Data Guru';
     $data['guru'] = $this->model('guru_model')->getData();
     $data['nama'] = 'Admin';
-    $this->view('admin/layout/theme');
+    $this->view('admin/layout/theme', $data);
     $this->view('admin/guru/index', $data);
     $this->view('admin/layout/footer');
   }
 
   public function add()
   {
+    $data['nama'] = 'Admin';
     $data['judul'] = 'Tambah Data Guru';
-    $this->view('admin/layout/theme');
+    $this->view('admin/layout/theme', $data);
     $this->view('admin/guru/add', $data);
     $this->view('admin/layout/footer');
   }
@@ -27,6 +28,7 @@ class Guru extends Controller
   {
     try {
       $send = $this->model('guru_model')->addDataGuru($_POST);
+      $nama = $_POST['nama'];
       
       if ($send) {
         Flasher::setFlash('berhasil', 'ditambahkan', 'success');

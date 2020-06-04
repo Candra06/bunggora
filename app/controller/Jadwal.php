@@ -1,24 +1,26 @@
 <?php
 
-class Siswa extends Controller{
+class Jadwal extends Controller{
 
     public function index()
     {
-        $data['judul'] = 'Data Siswa';
+        $data['judul'] = 'Data Jadwal';
         $data['nama'] = 'Admin';
-        $data['siswa'] = $this->model('siswa_model')->getData();
+        $data['jadwal'] = $this->model('jadwal_model')->getData();
         $this->view('admin/layout/theme', $data);
-        $this->view('admin/siswa/index', $data);
+        $this->view('admin/jadwal/index', $data);
         $this->view('admin/layout/footer');
     }
     
     public function add()
     {
-        $data['judul'] = 'Tambah Data Siswa';
+        $data['judul'] = 'Tambah Data Jadwal';
         $data['nama'] = 'Admin';
+        $data['mapel'] = $this->model('mapel_model')->getData();
+        $data['guru'] = $this->model('guru_model')->getData();
         $data['kelas'] = $this->model('kelas_model')->getData();
         $this->view('admin/layout/theme', $data);
-        $this->view('admin/siswa/add', $data);
+        $this->view('admin/jadwal/add', $data);
         $this->view('admin/layout/footer');
     }
 
@@ -43,13 +45,13 @@ class Siswa extends Controller{
 
     public function store()
     {
-        if ($this->model('siswa_model')->addDataSiswa($_POST) > 0) {
-            Flasher::setFlash('Data siswa berhasil', 'ditambahkan', 'success');
-            header('Location: '. BASEURL . 'Siswa');
+        if ($this->model('jadwal_model')->addDataJadwal($_POST) > 0) {
+            Flasher::setFlash('Data jadwal berhasil', 'ditambahkan', 'success');
+            header('Location: '. BASEURL . 'Jadwal');
             exit;
           }else {
-            Flasher::setFlash('Data siswa gagal', 'ditambahkan', 'danger');
-            header('Location: '. BASEURL . 'Siswa');
+            Flasher::setFlash('Data jadwal gagal', 'ditambahkan', 'danger');
+            header('Location: '. BASEURL . 'Jadwal');
             exit;
           }
         // var_dump($_POST);

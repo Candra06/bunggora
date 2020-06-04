@@ -3,9 +3,9 @@
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
         <!-- User profile -->
-        <div class="user-profile" style="background: url('<?= BASEURL?>assets/images/background/user-info.jpg') no-repeat;">
+        <div class="user-profile" style="background: url('<?= BASEURL?>images/background/user-info.jpg') no-repeat;">
             <!-- User profile image -->
-            <div class="profile-img"> <img src="<?= BASEURL?>assets/images/users/profile.png"  alt="user" /> </div>
+            <div class="profile-img"> <img src="<?= BASEURL?>images/users/profile.png"  alt="user" /> </div>
             <!-- User profile text-->
             <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><?= $data['nama']?></a>
 
@@ -23,9 +23,9 @@
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Data Master</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?= BASEURL; ?>Kelas">Kelas</a></li>
-                        <li><a href="<?= BASEURL; ?>Mapel">Mapel</a></li>
-                        <li><a href="<?= BASEURL; ?>Jadwal">Jadwal</a></li>
+                        <li><a href="form-basic.html">Kelas</a></li>
+                        <li><a href="form-layout.html">Mapel</a></li>
+                        <li><a href="form-addons.html">Jadwal</a></li>
 
                     </ul>
                 </li>
@@ -38,7 +38,7 @@
                     <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Siswa" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu">  Siswa</span></a>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Parents" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu"> Wali Siswa</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Parent" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu"> Wali Siswa</span></a>
                 </li>
                 <li class="nav-small-cap">Pengaturan</li>
                 <li>

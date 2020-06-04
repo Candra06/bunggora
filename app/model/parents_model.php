@@ -1,7 +1,7 @@
 <?php
 
-class siswa_model{
-    private $table = 'siswa';
+class parents_model{
+    private $table = 'parents';
     private $db;
 
     public function __construct()
@@ -11,27 +11,26 @@ class siswa_model{
 
     public function getData()
     {
-        $this->db->query('SELECT '. $this->table.'.*, kelas.tingkatan, kelas.nama_kelas FROM '. $this->table.' JOIN kelas ON '. $this->table .'.id_kelas=kelas.id');
+        $this->db->query('SELECT siswa.nama as nama_siswa, parents.* FROM `parents` JOIN siswa ON parents.id_siswa=siswa.id');
         return $this->db->resultSet();
     }
 
-    public function addDataSiswa($data)
+    public function addDataParents($data)
     {
         $this->db->Insert(
             ['username' => $data['email'], 
             'password'=> md5($data['password']), 
-            'level' => 'siswa', 
-            'status' => $data['status']], 'akun');
+            'level' => 'ortu', 
+            'status' => $data['status']
+        ], 'akun');
         
         $id = $this->db->lastInsertId();
 
         $add = $this->db->Insert([
             'id_akun' => $id,
-            'nis' => $data['nis'],
-            'nama' => $data['nama'],
-            'id_kelas' => $data['id_kelas'],
+            'id_siswa' => $data['id_siswa'],
+            'nama_ortu' => $data['nama_ortu'],
             'telepon' => $data['telepon'],
-            'alamat' => $data['alamat'],
             'status' => $data['status'],
         ], $this->table);        
         

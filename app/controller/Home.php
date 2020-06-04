@@ -28,7 +28,9 @@ class Home extends Controller{
           header('Location: '. BASEURL . 'Backoffice/Siswa');
         } elseif ($_SESSION['level'] == 'ortu') {
           header('Location: '. BASEURL . 'Backoffice/Siswa');
-        } else {
+        } else if($_SESSION['level'] == 'admin'){
+          header('Location: '. BASEURL . 'Admin');
+        }else {
           Flasher::setFlash('Level tidak terdefinisi', '', 'danger');
           header('Location: '. BASEURL . 'Home');
         }
