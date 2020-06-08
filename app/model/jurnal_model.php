@@ -21,6 +21,12 @@ class jurnal_model{
         return $this->db->resultSet();
     }
 
+    public function listJurnal($id_jadwal)
+    {
+        $this->db->query('SELECT * FROM jurnal WHERE id_jadwal='.$id_jadwal.'');
+        return $this->db->resultSet();
+    }
+
     public function addDataJadwal($data)
     {
         $add = $this->db->Insert([
@@ -29,6 +35,18 @@ class jurnal_model{
             'jam' => $data['jam'],
             'hari' => $data['hari'],
         ], $this->table);        
+        
+        return $add;
+    }
+
+    public function addAbsensi($id_siswa, $id_jurnal)
+    {
+        $add = $this->db->Insert([
+            'id_siswa' => $id_siswa,
+            'id_jurnal' => $id_jurnal,
+            'kehadiran' => 'hadir',
+            'keterangan' => 'hadir',
+        ], 'absensi');        
         
         return $add;
     }

@@ -19,9 +19,9 @@ class Home extends Controller{
         $data = $this->model('home_model')->getDetail($login[0]['id'], $login[0]['level']);
         $_SESSION['nama_akun'] = $data['nama'];
         $_SESSION['id_akun'] = $data['id'];
+        $_SESSION['id'] = $data['id_siswa'];
         $_SESSION['email'] = $data['username'];
         $_SESSION['level'] = $data['level'];
-        // print_r($data);
         if ($_SESSION['level'] == 'guru') {
           header('Location: '. BASEURL . 'Backoffice/Guru');
         } else if ($_SESSION['level'] == 'siswa'){

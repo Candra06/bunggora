@@ -20,7 +20,7 @@
               <h4 class="m-b-0 text-white">Tambah Data</h4>
           </div>
           <div class="card-body">
-              <form action="<?= BASEURL;?>Guru/store" method="post">
+              <form action="<?php if(isset($data['detail'])){ echo BASEURL.'Guru/update/'.$data['detail']['id']; }else{ BASEURL.'Guru/store';} ?>" method="post">
                   <div class="form-body">
                       <h3 class="card-title">Info Pribadi</h3>
                       <hr>
@@ -28,21 +28,21 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label">NIP</label>
-                                  <input required type="text" name="nip" class="form-control" placeholder="Masukkan NIP">
+                                  <input required type="text" name="nip" class="form-control" value="<?php if(isset($data['detail'])){ echo $data['detail']['nip']; }else{ echo '';} ?>" placeholder="Masukkan NIP">
 
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label">Nama</label>
-                                  <input required type="text" name="nama" class="form-control" placeholder="Masukkan nama lengkap">
+                                  <input required type="text" name="nama" class="form-control" value="<?php if(isset($data['detail'])){ echo $data['detail']['nama']; }else{ echo '';} ?>" placeholder="Masukkan nama lengkap">
 
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label">Telepon</label>
-                                  <input required type="text" name="telepon" class="form-control" placeholder="Masukkan nomor hp/telepon">
+                                  <input required type="text" name="telepon" class="form-control" value="<?php if(isset($data['detail'])){ echo $data['detail']['telepon']; }else{ echo '';} ?>" placeholder="Masukkan nomor hp/telepon">
 
                               </div>
                           </div>
@@ -51,8 +51,8 @@
                                   <label class="control-label">Status</label>
                                   <select required class="form-control custom-select" name="status">
                                       <option value="">Pilih Status</option>
-                                      <option value="aktif">Aktif</option>
-                                      <option value="banned">Banned</option>
+                                      <option <?php if(isset($data['detail'])){ if($data['detail']['status'] == 'aktif'){ echo 'selected';}else{echo '';}}?> value="aktif">Aktif</option>
+                                      <option  <?php if(isset($data['detail'])){ if($data['detail']['status'] == 'banned'){ echo 'selected';}else{echo '';}}?>value="banned">Banned</option>
                                   </select>
                               </div>
                           </div>
@@ -61,7 +61,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label">Alamat</label>
-                                    <textarea name="alamat" required class="form-control" rows="4" cols="80"></textarea>
+                                    <textarea name="alamat" required class="form-control" rows="4" cols="80"><?php if(isset($data['detail'])){ echo $data['detail']['alamat']; }else{ echo '';} ?></textarea>
                                 </div>
                             </div>
 

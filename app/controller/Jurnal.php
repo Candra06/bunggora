@@ -46,14 +46,17 @@ class Jurnal extends Controller{
         echo json_encode($data);
     }
 
-    public function update()
+    public function addAbsensi($id_siswa, $id_jurnal)
     {
-        # code...
-    }
-
-    public function delets()
-    {
-        # code...
+        if ($this->model('jurnal_model')->addAbsensi($id_siswa, $id_jurnal) > 0) {
+            Flasher::setFlash('Berhasil melakukan', 'absensi', 'success');
+            header('Location: '. BASEURL . 'Mapel/mapelSiswa');
+            exit;
+          }else {
+            Flasher::setFlash('Gagal melakukan', 'absensi', 'danger');
+            header('Location: '. BASEURL . 'Mapel/mapelSiswa');
+            exit;
+          }
     }
 
     public function store()

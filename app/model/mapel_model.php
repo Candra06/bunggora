@@ -33,7 +33,7 @@ class mapel_model{
 
     public function mapelBySiswa($id)
     {
-        $this->db->query('SELECT DISTINCT(m.nama_mapel), g.nama FROM jadwal j, mapel m, detail_mengajar dm, kelas k, guru g, siswa s WHERE s.id_kelas=j.id_kelas AND j.id_mengajar=dm.id AND dm.id_mapel=m.id AND dm.id_guru=g.id AND s.id='.$id.' GROUP BY j.id');
+        $this->db->query('SELECT DISTINCT(m.nama_mapel), g.nama, j.id as id_jadwal, j.hari, j.jam  FROM jadwal j, mapel m, detail_mengajar dm, kelas k, guru g, siswa s WHERE s.id_kelas=j.id_kelas AND j.id_mengajar=dm.id AND dm.id_mapel=m.id AND dm.id_guru=g.id AND s.id='.$id.' GROUP BY j.id, m.id');
         return $this->db->resultSet();
     }
 

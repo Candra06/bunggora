@@ -15,18 +15,36 @@ class Mapel extends Controller{
 
     public function mapelSiswa()
     {
-        if ($_SESSION['id_akun']) {
+        if ($_SESSION['id_akun']!='') {
             $data['judul'] = 'Data Mapel';
             $data['nama'] = $_SESSION['nama_akun'];
             $data['email'] = $_SESSION['email'];
-            $data['mapel'] = $this->model('mapel_model')->mapelBySiswa($_SESSION['id_akun']);
+            $data['mapel'] = $this->model('mapel_model')->mapelBySiswa($_SESSION['id']);
             $this->view('siswa/layout/theme', $data);
             $this->view('siswa/mapel/index', $data);
             $this->view('siswa/layout/footer');
         } else {
-            # code...
+            Flasher::setFlash('Anda harus login', 'terlebih dahulu', 'warning');
+            header('Location: '. BASEURL . 'Home');
+            exit;
         }
-        
+    }
+
+    public function detailMapel($id_jadwal)
+    {
+        if ($_SESSION['id_akun']!='') {
+            $data['judul'] = 'List Materi';
+            $data['nama'] = $_SESSION['nama_akun'];
+            $data['email'] = $_SESSION['email'];
+            $data['jurnal'] = $this->model('jurnal_model')->listJurnal($id_jadwal);
+            $this->view('siswa/layout/theme', $data);
+            $this->view('siswa/mapel/listJurnal', $data);
+            $this->view('siswa/layout/footer');
+        } else {
+            Flasher::setFlash('Anda harus login', 'terlebih dahulu', 'warning');
+            header('Location: '. BASEURL . 'Home');
+            exit;
+        }
     }
 
     public function ListMapel()

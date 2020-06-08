@@ -14,6 +14,26 @@ class guru_model{
         return $this->db->resultSet();
     }
 
+    public function getDetail($id)
+    {
+        $this->db->query('SELECT * FROM guru WHERE id='.$id.'');
+        return $this->db->single();
+    }
+
+    public function editDataGuru($data, $id)
+    {
+        $add = $this->db->Update([
+            'id_akun' => $id,
+            'nip' => $data['nip'],
+            'nama' => $data['nama'],
+            'telepon' => $data['telepon'],
+            'alamat' => $data['alamat'],
+            'status' => $data['status'],
+        ], " WHERE id=$id", 'guru');      
+
+        return $add;
+    }
+
     public function addDataGuru($data)
     {
         $this->db->Insert(

@@ -22,13 +22,13 @@
                 <li class="nav-small-cap">Master</li>
 
                 <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Mapel/mapelSiswa" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu">  Mapel</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Mapel/mapelSiswa" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">  Mapel</span></a>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Tugas/listTugas" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu">  Tugas</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Tugas/listTugas" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">  Tugas</span></a>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Report" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu"> Report</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Report" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu"> Report</span></a>
                 </li>
                 <li class="nav-small-cap">Pengaturan</li>
                 <li>

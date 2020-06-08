@@ -23,7 +23,7 @@ class home_model{
   {
     
     if ($level == 'siswa') {
-      $this->db->query('SELECT siswa.*, akun.* FROM siswa JOIN akun ON siswa.id_akun=akun.id WHERE siswa.id_akun=:id AND siswa.status=:status');
+      $this->db->query('SELECT siswa.*, siswa.id as id_siswa, akun.* FROM siswa JOIN akun ON siswa.id_akun=akun.id WHERE siswa.id_akun=:id AND siswa.status=:status');
       $this->db->bind('id', $id);
       $this->db->bind('status', 'aktif');
       return $this->db->single();

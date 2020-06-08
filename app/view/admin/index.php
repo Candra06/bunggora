@@ -18,9 +18,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-row">
-                            <div class="round round-lg align-self-center round-info"><i class="ti-wallet"></i></div>
+                            <div class="round round-lg align-self-center round-info"><i class="mdi mdi-clipboard-account"></i></div>
                             <div class="m-l-10 align-self-center">
-                                <h3 class="m-b-0 font-light">$3249</h3>
+                                <h3 class="m-b-0 font-light">5</h3>
                                 <h5 class="text-muted m-b-0">Guru</h5></div>
                         </div>
                     </div>
@@ -32,9 +32,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-row">
-                            <div class="round round-lg align-self-center round-warning"><i class="mdi mdi-cellphone-link"></i></div>
+                            <div class="round round-lg align-self-center round-warning"><i class="fa fa-mortar-board"></i></div>
                             <div class="m-l-10 align-self-center">
-                                <h3 class="m-b-0 font-lgiht">$2376</h3>
+                                <h3 class="m-b-0 font-lgiht">8</h3>
                                 <h5 class="text-muted m-b-0">Siswa</h5></div>
                         </div>
                     </div>
@@ -46,9 +46,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-row">
-                            <div class="round round-lg align-self-center round-primary"><i class="mdi mdi-cart-outline"></i></div>
+                            <div class="round round-lg align-self-center round-primary"><i class="mdi mdi-buffer"></i></div>
                             <div class="m-l-10 align-self-center">
-                                <h3 class="m-b-0 font-lgiht">$1795</h3>
+                                <h3 class="m-b-0 font-lgiht">3</h3>
                                 <h5 class="text-muted m-b-0">Kelas</h5></div>
                         </div>
                     </div>
@@ -60,10 +60,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-row">
-                            <div class="round round-lg align-self-center round-danger"><i class="mdi mdi-bullseye"></i></div>
+                            <div class="round round-lg align-self-center round-danger"><i class="fa fa-group"></i></div>
                             <div class="m-l-10 align-self-center">
-                                <h3 class="m-b-0 font-lgiht">$687</h3>
-                                <h5 class="text-muted m-b-0">Ad. Expense</h5></div>
+                                <h3 class="m-b-0 font-lgiht">5</h3>
+                                <h5 class="text-muted m-b-0">Akun</h5></div>
                         </div>
                     </div>
                 </div>

@@ -44,24 +44,10 @@
                                 <td><?= $dt['nama']?></td>
                                 <td><?= $dt['telepon']?></td>
                                 <td><span class="label <?=  $dt['status'] == 'aktif' ? 'label-success' : 'label-danger' ?>"><?= $dt['status']?></span></td>
-                                <td> <a class="btn btn-info" href="#"> <i class="fa fa-pencil"></i> Edit</a> </td>
+                                <td> <a class="btn btn-info" href="<?= BASEURL ?>Guru/edit/<?= $dt['id']?>"> <i class="fa fa-pencil"></i> Edit</a> </td>
                             </tr>
                             <?php } ?>
 
-                            <!-- <tr>
-                                <td>182410101012</td>
-                                <td>Abdi Rahman</td>
-                                <td>089843368286</td>
-                                <td> <span class="label label-success">Aktif</span> </td>
-                                <td> <a class="btn btn-info" href="#"> <i class="fa fa-pencil"></i> Edit</a> </td>
-                            </tr>
-                            <tr>
-                                <td>182410101012</td>
-                                <td>Abdi Rahman</td>
-                                <td>089843368286</td>
-                                <td> <span class="label label-danger">Banned</span> </td>
-                                <td> <a class="btn btn-info" href="#"> <i class="fa fa-pencil"></i> Edit</a> </td>
-                            </tr> -->
 
                         </tbody>
                     </table>
