@@ -20,7 +20,7 @@
               <h4 class="m-b-0 text-white">Tambah Data</h4>
           </div>
           <div class="card-body">
-              <form action="<?= BASEURL;?>Jadwal/store" method="post">
+              <form action="<?php if(isset($data['detail'])){ echo BASEURL.'jadwal/update/'.$data['detail']['id']; }else{ BASEURL.'Guru/store';} ?>" method="post">
                   <div class="form-body">
                       <h3 class="card-title">Info Jadwal</h3>
                       <hr>
