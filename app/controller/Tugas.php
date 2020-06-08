@@ -60,6 +60,24 @@ class Tugas extends Controller
         echo json_encode($data);
     }
 
+    public function listTugas()
+    {
+        if ($_SESSION['id_akun'] == '') {
+            Flasher::setFlash('Anda harus login terlebih dahulu', '', 'warning');
+            header('Location: '. BASEURL . 'Tugas');
+            exit;
+        } else {
+            $data['judul'] = 'Data Tugas';
+            $data['nama'] = $_SESSION['nama_akun'];
+            $data['email'] = $_SESSION['email'];
+            $data['tugas'] = $this->model('tugas_model')->getList($_SESSION['id']);
+            $this->view('siswa/layout/theme', $data);
+            $this->view('siswa/tugas/index', $data);
+            $this->view('siswa/layout/footer');
+        }
+    }
+
+
     public function update($id)
     {
         if ($_SESSION['id_akun'] == '') {

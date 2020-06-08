@@ -33,6 +33,11 @@ class tugas_model{
         return $this->db->single();
     }
 
+    public function getListTugas($id)
+    {
+        $this->db->query('SELECT * FROM tugas t, siswa s WHERE ');
+    }
+
     public function addTugas($data)
     {
         $add = $this->db->Insert([
