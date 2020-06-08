@@ -46,7 +46,7 @@
                                 <td><?= $dt['nama_kelas']?></td>
                                 <td><?= $dt['tingkatan']?></td>
                                 
-                                <td> <a class="btn btn-info" href="#"> <i class="fa fa-pencil"></i> Edit</a> </td>
+                                <td> <a class="btn btn-info" href="<?= BASEURL?>Kelas/edit/<?= $dt['id']?>"> <i class="fa fa-pencil"></i> Edit</a> </td>
                             </tr>
                             <?php 
                         $no++;

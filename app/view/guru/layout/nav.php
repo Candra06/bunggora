@@ -3,9 +3,9 @@
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
         <!-- User profile -->
-        <div class="user-profile" style="background: url('<?= BASEURL?>images/background/user-info.jpg') no-repeat;">
+        <div class="user-profile" style="background: url('<?= BASEURL?>assets/images/background/user-info.jpg') no-repeat;">
             <!-- User profile image -->
-            <div class="profile-img"> <img src="<?= BASEURL?>images/users/profile.png"  alt="user" /> </div>
+            <div class="profile-img"> <img src="<?= BASEURL?>assets/images/users/profile.png"  alt="user" /> </div>
             <!-- User profile text-->
             <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><?= $data['nama']?></a>
 
@@ -17,30 +17,20 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">Home</li>
                 <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL ?>Admin" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL ?>Backoffice/Guru" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                 </li>
-                <li class="nav-small-cap">Master</li>
+                
+                <li class="nav-small-cap">Main Menu</li>
                 <li>
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Data Master</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="form-basic.html">Kelas</a></li>
-                        <li><a href="form-layout.html">Mapel</a></li>
-                        <li><a href="form-addons.html">Jadwal</a></li>
-
-                    </ul>
-                </li>
-                <li class="nav-small-cap">Pengguna Sistem</li>
-
-                <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Guru" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu">  Guru</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Tugas/ListKelas" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu">  Tugas</span></a>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Siswa" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu">  Siswa</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Jurnal" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu"> Jurnal</span></a>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Parent" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu"> Wali Siswa</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL; ?>Report" aria-expanded="false"><i class="fa fa-group"></i><span class="hide-menu"> Report</span></a>
                 </li>
-                <li class="nav-small-cap">Pengaturan</li>
+                <li class="nav-small-cap">Other</li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-user-circle"></i><span class="hide-menu">Akun</span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -49,7 +39,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Logout</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL?>Home/logout" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Logout</span></a>
                 </li>
             </ul>
         </nav>

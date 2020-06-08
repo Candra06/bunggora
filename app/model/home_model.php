@@ -23,9 +23,9 @@ class home_model{
   {
     
     if ($level == 'siswa') {
-      $this->db->query('SELECT * FROM '. $this->table2 .' JOIN '. $this->table .' ON '. $this->table2 .'.id_akses='. $this->table .'.id WHERE '. $this->table2 .'.id=:id AND level=:siswa');
+      $this->db->query('SELECT siswa.*, akun.* FROM siswa JOIN akun ON siswa.id_akun=akun.id WHERE siswa.id_akun=:id AND siswa.status=:status');
       $this->db->bind('id', $id);
-      $this->db->bind('level', $level);
+      $this->db->bind('status', 'aktif');
       return $this->db->single();
     } else if ($level == 'guru'){
       $this->db->query('SELECT guru.*, akun.* FROM `guru` JOIN akun ON guru.id_akun=akun.id WHERE guru.id_akun=:id AND guru.status=:status');

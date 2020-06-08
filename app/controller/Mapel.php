@@ -12,6 +12,33 @@ class Mapel extends Controller{
         $this->view('admin/mapel/index', $data);
         $this->view('admin/layout/footer');
     }
+
+    public function mapelSiswa()
+    {
+        if ($_SESSION['id_akun']) {
+            $data['judul'] = 'Data Mapel';
+            $data['nama'] = $_SESSION['nama_akun'];
+            $data['email'] = $_SESSION['email'];
+            $data['mapel'] = $this->model('mapel_model')->mapelBySiswa($_SESSION['id_akun']);
+            $this->view('siswa/layout/theme', $data);
+            $this->view('siswa/mapel/index', $data);
+            $this->view('siswa/layout/footer');
+        } else {
+            # code...
+        }
+        
+    }
+
+    public function ListMapel()
+    {
+        $data['judul'] = 'Data Mapel';
+        $data['nama'] = $_SESSION['nama_akun'];
+        $data['email'] = $_SESSION['email'];
+        $data['mapel'] = $this->model('mapel_model')->getDataMapelGuru($_SESSION['id_akun']);
+        $this->view('guru/layout/theme', $data);
+        $this->view('guru/mapel/index', $data);
+        $this->view('guru/layout/footer');
+    }
     
     public function add()
     {

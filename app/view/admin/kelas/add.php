@@ -31,7 +31,7 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label>Rombel</label>
-                                  <input type="text" name="rombel" required placeholder="Rombel" class="form-control">
+                                  <input type="text" name="rombel" value="<?php if (isset($data['detail'])) { if ($data['detail'][0]['nama_kelas'] == '')  echo ''; else echo $data['detail'][0]['nama_kelas']; }?>" required placeholder="Rombel" class="form-control">
                               </div>
                           </div>
                           <!--/span-->

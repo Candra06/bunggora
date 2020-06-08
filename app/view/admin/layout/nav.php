@@ -25,6 +25,7 @@
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?= BASEURL; ?>Kelas">Kelas</a></li>
                         <li><a href="<?= BASEURL; ?>Mapel">Mapel</a></li>
+                        <li><a href="<?= BASEURL; ?>DataMengajar">Data Mengajar</a></li>
                         <li><a href="<?= BASEURL; ?>Jadwal">Jadwal</a></li>
 
                     </ul>
@@ -49,7 +50,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Logout</span></a>
+                    <a class="waves-effect waves-dark" href="<?= BASEURL?>Home/logout" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Logout</span></a>
                 </li>
             </ul>
         </nav>

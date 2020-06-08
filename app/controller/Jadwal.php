@@ -16,8 +16,7 @@ class Jadwal extends Controller{
     {
         $data['judul'] = 'Tambah Data Jadwal';
         $data['nama'] = 'Admin';
-        $data['mapel'] = $this->model('mapel_model')->getData();
-        $data['guru'] = $this->model('guru_model')->getData();
+        $data['mapel'] = $this->model('jadwal_model')->getDetailMengajar();
         $data['kelas'] = $this->model('kelas_model')->getData();
         $this->view('admin/layout/theme', $data);
         $this->view('admin/jadwal/add', $data);

@@ -8,8 +8,7 @@ class Home extends Controller{
   public function index()
   {
     $data['judul'] = 'Dashboard';
-    $data['siswa'] = $this->model('home_model')->getData();
-    $this->view('home/index', $data);
+    $this->view('home/index');
   }
 
   public function login()
@@ -22,12 +21,13 @@ class Home extends Controller{
         $_SESSION['id_akun'] = $data['id'];
         $_SESSION['email'] = $data['username'];
         $_SESSION['level'] = $data['level'];
+        // print_r($data);
         if ($_SESSION['level'] == 'guru') {
           header('Location: '. BASEURL . 'Backoffice/Guru');
         } else if ($_SESSION['level'] == 'siswa'){
           header('Location: '. BASEURL . 'Backoffice/Siswa');
         } elseif ($_SESSION['level'] == 'ortu') {
-          header('Location: '. BASEURL . 'Backoffice/Siswa');
+          header('Location: '. BASEURL . 'Backoffice/Parent');
         } else if($_SESSION['level'] == 'admin'){
           header('Location: '. BASEURL . 'Admin');
         }else {
@@ -53,6 +53,13 @@ class Home extends Controller{
     $this->view('tamplate/head');
     $this->view('home/detail', $data);
     $this->view('tamplate/footer');
+  }
+
+  public function logout()
+  {
+    session_destroy();
+    unset($_SESSION['id_akun']);
+    header('Location: '. BASEURL . 'Home');
   }
 
 }

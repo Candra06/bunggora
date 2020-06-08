@@ -43,21 +43,10 @@
                                   <select required name="id_mapel" class="form-control custom-select">
                                       <option value="">Pilih Mapel</option>
                                     <?php foreach ($data['mapel'] as $kl) {?>
-                                        <option value="<?= $kl['id']?>"><?= $kl['nama_mapel']?></option>
+                                        <option value="<?= $kl['id']?>"><?= $kl['nama_mapel']?> (<?= $kl['nama']?>)</option>
                                     <?php } ?>
                                   </select>
 
-                              </div>
-                          </div>
-                          <div class="col-md-6">
-                              <div class="form-group">
-                                  <label class="control-label">Guru</label>
-                                  <select required name="id_guru" class="form-control custom-select">
-                                      <option value="">Pilih Guru</option>
-                                    <?php foreach ($data['guru'] as $kl) {?>
-                                        <option value="<?= $kl['id']?>"><?= $kl['nama']?></option>
-                                    <?php } ?>
-                                  </select>
                               </div>
                           </div>
                           <div class="col-md-6">

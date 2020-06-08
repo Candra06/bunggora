@@ -69,6 +69,22 @@ class Database{
     return $lastID;
   }
 
+  public function Update($data, $where, $table = '') {
+    $q = "UPDATE " . ($table == '' ? $this->table : $table) . " SET ";
+    $i = 0;
+
+    foreach($data as $v => $d) {
+        $q .= " $v = :$v ";
+        if(++$i < count($data))
+            $q .= ", ";
+    }
+
+    $q .= " $where";
+    echo $q;
+    $this->ExecuteUpdate($q, $data);
+    return true;
+  }
+
   public function execute(){
     $this->stmt->execute();
   }
@@ -94,6 +110,11 @@ class Database{
   public function rowCount()
   {
     return $this->stmt->rowCount();
+  }
+
+  public function ExecuteUpdate($q, $data = []) {
+    $this->stmt = $this->dbh->prepare($q);
+    $this->stmt->execute($data);
   }
 }
 

@@ -4,35 +4,24 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="<?= BASEURL; ?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?= BASEURL; ?>css/style.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="<?= BASEURL; ?>css/colors/blue.css" id="theme" rel="stylesheet">
-    <![endif]-->
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= BASEURL; ?>assets/images/favicon.png">
+    <title>Bunggora</title>
+    <link href="<?= BASEURL; ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= BASEURL; ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?= BASEURL; ?>assets/css/colors/blue.css" id="theme" rel="stylesheet">
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
+    
     <section id="wrapper">
         <div class="login-register" style="background-color: #44adc2;">
+        <div class="row">
+            <img src="<?= BASEURL; ?>assets/images/tulisan_putih.svg" style="height: 90px;margin-left: auto;margin-right: auto;margin-bottom: 30px;" alt="" srcset="">
+        </div>
             <div class="login-box card">
             <div class="card-body">
                 <form class="form-horizontal form-material" method="post" id="loginform" action="<?= BASEURL;?>Home/login">
@@ -61,31 +50,29 @@
                 
             </div>
           </div>
+          
+              <center><p style="margin-top: 20px; color: #fff">&copy; RA Team 2020-PWBC</p></center>
+          
         </div>
 
     </section>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?= BASEURL; ?>plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?= BASEURL; ?>plugins/bootstrap/js/popper.min.js"></script>
-    <script src="<?= BASEURL; ?>plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?= BASEURL; ?>js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="<?= BASEURL; ?>js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="<?= BASEURL; ?>js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="<?= BASEURL; ?>js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="<?= BASEURL; ?>plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="<?= BASEURL;?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="<?= BASEURL;?>assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="<?= BASEURL;?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="<?= BASEURL;?>assets/js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="<?= BASEURL;?>assets/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="<?= BASEURL;?>assets/js/sidebarmenu.js"></script>
+ <!--stickey kit -->
+ <script src="<?= BASEURL;?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="<?= BASEURL;?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--stickey kit -->
+    <script src="<?= BASEURL;?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="<?= BASEURL;?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?= BASEURL;?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
 </body>
 
 </html>
