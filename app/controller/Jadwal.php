@@ -25,10 +25,12 @@ class Jadwal extends Controller{
 
     public function edit($id)
     {
-        $data['judul'] = 'Data Guru';
-        $data['guru'] = $this->model('guru_model')->getData();
-        $this->view('admin/layout/theme');
-        $this->view('admin/guru/index', $data);
+        $data['judul'] = 'Tambah Data Jadwal';
+        $data['nama'] = 'Admin';
+        $data['mapel'] =  $this->model('jadwal_model')->getData();
+        $data['kelas'] =  $this->model('jadwal_model')->getData();
+        $this->view('admin/layout/theme', $data);
+        $this->view('admin/jadwal/add', $data);
         $this->view('admin/layout/footer');
     }
 
