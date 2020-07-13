@@ -48,5 +48,15 @@ class kelas_model{
         
         return $add;
     }
+
+    public function editDataKelas($data,$id)
+    {
+        $update = $this->db->Update([
+            'nama_kelas' => $data['rombel'],
+            'tingkatan' => $data['tingkatan'],
+        ], " WHERE id=$id", $this->table);        
+        
+        return $update;
+    }
 }
 ?>

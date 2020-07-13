@@ -15,32 +15,52 @@ class Parents extends Controller{
     
     public function add()
     {
-        $data['judul'] = 'Tambah Data Wali Murid';
-        $data['nama'] = 'Admin';
-        $data['siswa'] = $this->model('siswa_model')->getData();
-        // $data['email'] = $_SESSION['email'];
-        $this->view('admin/layout/theme', $data);
-        $this->view('admin/parent/add', $data);
-        $this->view('admin/layout/footer');
+        if ($_SESSION['id_akun'] != null) {
+            $data['judul'] = 'Tambah Data Wali Murid';
+            $data['nama'] = 'Admin';
+            $data['siswa'] = $this->model('siswa_model')->getData();
+            $data['email'] = $_SESSION['email'];
+            $this->view('admin/layout/theme', $data);
+            $this->view('admin/parent/add', $data);
+            $this->view('admin/layout/footer');
+        } else {
+            Flasher::setFlash('Anda harus login', 'terlebih dahulu', 'warning');
+            header('Location: '. BASEURL . 'Home');
+            exit;
+        }
+        
     }
 
     public function edit($id)
     {
-        $data['judul'] = 'Data Guru';
-        $data['guru'] = $this->model('guru_model')->getData();
-        $this->view('admin/layout/theme');
-        $this->view('admin/guru/index', $data);
-        $this->view('admin/layout/footer');
+        if ($_SESSION['id_akun'] == '' || $_SESSION['id_akun'] == null) {
+            Flasher::setFlash('Anda harus login', 'terlebih dahulu', 'warning');
+            header('Location: '. BASEURL . 'Home');
+            exit;
+        } else {
+            $data['judul'] = 'Edit Data Wali';
+            $data['email'] = $_SESSION['email'];
+            $data['nama'] = 'Admin';
+            $data['siswa'] = $this->model('siswa_model')->getData();
+            $data['detail'] = $this->model('parents_model')->getDetailData($id);
+            $this->view('admin/layout/theme', $data);
+            $this->view('admin/parent/add', $data);
+            $this->view('admin/layout/footer');
+        }
+        
     }
 
-    public function update()
+    public function update($id)
     {
-        # code...
-    }
-
-    public function delets()
-    {
-        # code...
+        if ($this->model('parents_model')->updateDataParents($_POST, $id) > 0) {
+            Flasher::setFlash('Data wali murid berhasil', 'diupdate', 'success');
+            header('Location: '. BASEURL . 'Parents');
+            exit;
+          }else {
+            Flasher::setFlash('Data wali murid gagal', 'diupdate', 'danger');
+            header('Location: '. BASEURL . 'Parents');
+            exit;
+          }
     }
 
     public function store()

@@ -15,6 +15,18 @@ class mapel_model{
         return $this->db->resultSet();
     }
 
+    public function getDataDetail($id)
+    {
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE id='.$id.'');
+        return $this->db->single();
+    }
+
+    public function getDataMengajar($id)
+    {
+        $this->db->query('SELECT * FROM detail_mengajar WHERE id='.$id.'');
+        return $this->db->single();
+    }
+
     public function getDataMapelGuru($id)
     {
         $this->db->query('SELECT mapel.nama_mapel, mapel.id, jadwal.id_mapel FROM jadwal JOIN mapel ON jadwal.id_mapel=mapel.id WHERE id_guru='.$id.' GROUP BY jadwal.id_mapel,  mapel.id');
@@ -27,6 +39,16 @@ class mapel_model{
             'nama_mapel' => $data['mapel'],
             'golongan' => $data['golongan'],
         ], $this->table);        
+        
+        return $add;
+    }
+
+    public function updateDataMapel($data, $id)
+    {
+        $add = $this->db->Update([
+            'nama_mapel' => $data['mapel'],
+            'golongan' => $data['golongan'],
+        ], "WHERE id=$id" ,$this->table);        
         
         return $add;
     }

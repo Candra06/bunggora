@@ -6,7 +6,7 @@ class Mapel extends Controller{
     {
         $data['judul'] = 'Data Mapel';
         $data['nama'] = 'Admin';
-        // $data['email'] = $_SESSION['nama'];
+        $data['email'] = $_SESSION['email'];
         $data['mapel'] = $this->model('mapel_model')->getData();
         $this->view('admin/layout/theme', $data);
         $this->view('admin/mapel/index', $data);
@@ -60,9 +60,9 @@ class Mapel extends Controller{
     
     public function add()
     {
-        $data['judul'] = 'Tambah Data Siswa';
+        $data['judul'] = 'Tambah Data Mapel';
         $data['nama'] = 'Admin';
-        // $data['email'] = $_SESSION['email'];
+        $data['email'] = $_SESSION['email'];
         $this->view('admin/layout/theme', $data);
         $this->view('admin/mapel/add', $data);
         $this->view('admin/layout/footer');
@@ -70,21 +70,26 @@ class Mapel extends Controller{
 
     public function edit($id)
     {
-        $data['judul'] = 'Data Guru';
-        $data['guru'] = $this->model('guru_model')->getData();
-        $this->view('admin/layout/theme');
-        $this->view('admin/guru/index', $data);
+        $data['judul'] = 'Edit Data Mapel';
+        $data['nama'] = 'Admin';
+        $data['email'] = $_SESSION['email'];        
+        $data['detail'] = $this->model('mapel_model')->getDataDetail($id);
+        $this->view('admin/layout/theme', $data);
+        $this->view('admin/mapel/add', $data);
         $this->view('admin/layout/footer');
     }
 
-    public function update()
+    public function update($id)
     {
-        # code...
-    }
-
-    public function delets()
-    {
-        # code...
+        if ($this->model('mapel_model')->updateDataMapel($_POST, $id) > 0) {
+            Flasher::setFlash('Data mapel berhasil', 'diupdate', 'success');
+            header('Location: '. BASEURL . 'Mapel');
+            exit;
+          }else {
+            Flasher::setFlash('Data mapel gagal', 'diupdate', 'danger');
+            header('Location: '. BASEURL . 'Mapel');
+            exit;
+        }
     }
 
     public function store()
@@ -97,8 +102,7 @@ class Mapel extends Controller{
             Flasher::setFlash('Data mapel gagal', 'ditambahkan', 'danger');
             header('Location: '. BASEURL . 'Mapel');
             exit;
-          }
-        // var_dump($_POST);
+        }
     }
 
 

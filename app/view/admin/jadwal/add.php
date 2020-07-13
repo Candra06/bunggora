@@ -8,7 +8,7 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item">Dashboard</li>
                     <li class="breadcrumb-item">Jadwal</li>
-                    <li class="breadcrumb-item active">Tambah Data</li>
+                    <li class="breadcrumb-item active"><?= $data['judul']; ?></li>
                 </ol>
             </div>
 
@@ -17,10 +17,10 @@
 
         <div class="card card-outline-info">
           <div class="card-header">
-              <h4 class="m-b-0 text-white">Tambah Data</h4>
+              <h4 class="m-b-0 text-white"><?= $data['judul']; ?></h4>
           </div>
           <div class="card-body">
-              <form action="<?php if(isset($data['detail'])){ echo BASEURL.'jadwal/update/'.$data['detail']['id']; }else{ BASEURL.'Guru/store';} ?>" method="post">
+              <form action="<?php if(isset($data['detail'])){ echo BASEURL.'Jadwal/update/'.$data['detail']['id']; }else{ BASEURL.'Jadwal/store';} ?>" method="post">
                   <div class="form-body">
                       <h3 class="card-title">Info Jadwal</h3>
                       <hr>
@@ -31,7 +31,7 @@
                                   <select required name="id_kelas" class="form-control custom-select">
                                       <option value="">Pilih Kelas</option>
                                     <?php foreach ($data['kelas'] as $kl) {?>
-                                        <option value="<?= $kl['id']?>"><?= $kl['tingkatan'].''.$kl['nama_kelas']?></option>
+                                        <option <?php if(isset($data['detail'])){ if($data['detail']['id_kelas'] == $kl['id']){ echo 'selected';} else { echo '';}} ?> value="<?= $kl['id']?>"><?= $kl['tingkatan'].''.$kl['nama_kelas']?></option>
                                     <?php } ?>
                                   </select>
 
@@ -43,7 +43,7 @@
                                   <select required name="id_mapel" class="form-control custom-select">
                                       <option value="">Pilih Mapel</option>
                                     <?php foreach ($data['mapel'] as $kl) {?>
-                                        <option value="<?= $kl['id']?>"><?= $kl['nama_mapel']?> (<?= $kl['nama']?>)</option>
+                                        <option <?php if(isset($data['detail'])){ if($data['detail']['id_mapel'] == $kl['id']){ echo 'selected';} else { echo '';}} ?>  value="<?= $kl['id']?>"><?= $kl['nama_mapel']?> (<?= $kl['nama']?>)</option>
                                     <?php } ?>
                                   </select>
 
@@ -54,12 +54,12 @@
                                   <label class="control-label">Hari</label>
                                   <select required name="hari" class="form-control custom-select">
                                       <option value="">Pilih Kelas</option>
-                                    <option value="Senin">Senin</option>
-                                    <option value="Selasa">Selasa</option>
-                                    <option value="Rabu">Rabu</option>
-                                    <option value="Kamis">Kamis</option>
-                                    <option value="Jum`at">Jum`at</option>
-                                    <option value="Sabtu">Sabtu</option>
+                                    <option <?php if(isset($data['detail'])){ if($data['detail']['hari'] == 'Senin'){ echo 'selected';} else { echo '';}} ?>  value="Senin">Senin</option>
+                                    <option <?php if(isset($data['detail'])){ if($data['detail']['hari'] == 'Selasa'){ echo 'selected';} else { echo '';}} ?>  value="Selasa">Selasa</option>
+                                    <option <?php if(isset($data['detail'])){ if($data['detail']['hari'] == 'Rabu'){ echo 'selected';} else { echo '';}} ?>  value="Rabu">Rabu</option>
+                                    <option <?php if(isset($data['detail'])){ if($data['detail']['hari'] == 'Kamis'){ echo 'selected';} else { echo '';}} ?>  value="Kamis">Kamis</option>
+                                    <option <?php if(isset($data['detail'])){ if($data['detail']['hari'] == 'Jum`at'){ echo 'selected';} else { echo '';}} ?>  value="Jum`at">Jum`at</option>
+                                    <option <?php if(isset($data['detail'])){ if($data['detail']['hari'] == 'Sabtu'){ echo 'selected';} else { echo '';}} ?>  value="Sabtu">Sabtu</option>
                                     
                                   </select>
                               </div>
@@ -67,7 +67,7 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label class="control-label">Jam</label>
-                                  <input type="time" name="jam" required placeholder="Masukkan Jam " class="form-control">
+                                  <input type="time" value="<?php if(isset($data['detail'])){ echo $data['detail']['jam'];}else{ echo '';   } ?>" name="jam" required placeholder="Masukkan Jam " class="form-control">
                               </div>
                           </div>
 

@@ -16,7 +16,7 @@ class guru_model{
 
     public function getDetail($id)
     {
-        $this->db->query('SELECT * FROM guru WHERE id='.$id.'');
+        $this->db->query('SELECT * FROM guru, akun WHERE guru.id_akun=akun.id AND guru.id='.$id.'');
         return $this->db->single();
     }
 
@@ -29,7 +29,14 @@ class guru_model{
             'telepon' => $data['telepon'],
             'alamat' => $data['alamat'],
             'status' => $data['status'],
-        ], " WHERE id=$id", 'guru');      
+        ], " WHERE id=$id", 'guru'); 
+        
+        $akun = $this->db->Update(
+            ['username' => $data['email'], 
+            'password'=> md5($data['password']), 
+            'level' => 'guru', 
+            'status' => $data['status']
+        ], " WHERE id=".$data['id_akun'] , 'akun');
 
         return $add;
     }

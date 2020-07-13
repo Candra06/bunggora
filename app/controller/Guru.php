@@ -17,22 +17,37 @@ class Guru extends Controller
 
   public function add()
   {
-    $data['nama'] = 'Admin';
-    $data['judul'] = 'Tambah Data Guru';
-    $this->view('admin/layout/theme', $data);
-    $this->view('admin/guru/add', $data);
-    $this->view('admin/layout/footer');
+    if ($_SESSION['id_akun'] == '') {
+      Flasher::setFlash('Anda harus login', 'terlebih dahulu', 'success');
+      header('Location: '. BASEURL . 'Home');
+      exit;
+    } else {
+      $data['nama'] = 'Admin';
+      $data['judul'] = 'Tambah Data Guru';
+      $data['email'] = $_SESSION['email'];
+      $this->view('admin/layout/theme', $data);
+      $this->view('admin/guru/add', $data);
+      $this->view('admin/layout/footer');
+    }
+    
   }
 
   public function edit($id)
   {
-    $data['nama'] = 'Admin';
-    $data['judul'] = 'Tambah Data Guru';
-    $data['email'] = $_SESSION['email'];
-    $data['detail'] = $this->model('guru_model')->getDetail($id);
-    $this->view('admin/layout/theme', $data);
-    $this->view('admin/guru/add', $data);
-    $this->view('admin/layout/footer');
+    if ($_SESSION['id_akun'] == '') {
+      Flasher::setFlash('Anda harus login', 'terlebih dahulu', 'success');
+      header('Location: '. BASEURL . 'Home');
+      exit;
+    } else {
+      $data['nama'] = 'Admin';
+      $data['judul'] = 'Tambah Data Guru';
+      $data['email'] = $_SESSION['email'];
+      $data['detail'] = $this->model('guru_model')->getDetail($id);
+      $this->view('admin/layout/theme', $data);
+      $this->view('admin/guru/add', $data);
+      $this->view('admin/layout/footer');
+    }
+    
   }
 
   public function update($id)
@@ -42,16 +57,16 @@ class Guru extends Controller
       $nama = $_POST['nama'];
       
       if ($send) {
-        Flasher::setFlash('berhasil', 'dirubah', 'success');
+        Flasher::setFlash('Data berhasil', 'diupdate', 'success');
         header('Location: '. BASEURL . 'Guru');
         exit;
       }else{
-        Flasher::setFlash('gagal', 'dirubah', 'danger');
+        Flasher::setFlash('Data gagal', 'diupdate', 'danger');
         header('Location: '. BASEURL . 'Guru');
         exit;
       }
     } catch (Exception $e) {
-        echo "<script>alert('NIP sudah terpakai'); location.href='". BASEURL ."Guru/add';</script>";
+        // echo "<script>alert('NIP sudah terpakai'); location.href='". BASEURL ."Guru/add';</script>";
       exit();
     }
   }
@@ -63,11 +78,11 @@ class Guru extends Controller
       $nama = $_POST['nama'];
       
       if ($send) {
-        Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+        Flasher::setFlash('Data berhasil', 'ditambahkan', 'success');
         header('Location: '. BASEURL . 'Guru');
         exit;
       }else{
-        Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+        Flasher::setFlash('Data gagal', 'ditambahkan', 'danger');
         header('Location: '. BASEURL . 'Guru');
         exit;
       }

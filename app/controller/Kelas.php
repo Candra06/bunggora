@@ -42,7 +42,7 @@ class Kelas extends Controller{
 
     public function edit($id)
     {
-        $data['judul'] = 'Data Kelas';
+        $data['judul'] = 'Edit Data Kelas';
         $data['nama'] = 'Admin';
         $data['email'] = $_SESSION['email'];
         $data['detail'] = $this->model('kelas_model')->getDataDetail($id);
@@ -51,14 +51,17 @@ class Kelas extends Controller{
         $this->view('admin/layout/footer');
     }
 
-    public function update()
+    public function update($id)
     {
-        # code...
-    }
-
-    public function delete()
-    {
-        # code...
+        if ($this->model('kelas_model')->editDataKelas($_POST, $id) > 0) {
+            Flasher::setFlash('Data kelas berhasil', 'diupdate', 'success');
+            header('Location: '. BASEURL . 'Kelas');
+            exit;
+          }else {
+            Flasher::setFlash('Data kelas gagal', 'diupdate', 'danger');
+            header('Location: '. BASEURL . 'Kelas');
+            exit;
+          }
     }
 
     public function store()

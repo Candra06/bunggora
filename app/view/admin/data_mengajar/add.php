@@ -8,7 +8,7 @@
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                     <li class="breadcrumb-item">Dashboard</li>
                     <li class="breadcrumb-item">Jadwal</li>
-                    <li class="breadcrumb-item active">Tambah Data</li>
+                    <li class="breadcrumb-item active"><?= $data['judul'] ?></li>
                 </ol>
             </div>
 
@@ -17,10 +17,10 @@
 
         <div class="card card-outline-info">
           <div class="card-header">
-              <h4 class="m-b-0 text-white">Tambah Data</h4>
+              <h4 class="m-b-0 text-white"><?= $data['judul'] ?></h4>
           </div>
           <div class="card-body">
-              <form action="<?= BASEURL;?>DataMengajar/store" method="post">
+              <form action="<?php if(isset($data['detail'])){ echo BASEURL.'DataMengajar/update/'.$data['detail']['id'];}else{ echo BASEURL.'DataMengajar/store';}?>" method="post">
                   <div class="form-body">
                       <h3 class="card-title">Info Data Mengajar</h3>
                       <hr>
@@ -32,7 +32,7 @@
                                   <select required name="id_mapel" class="form-control custom-select">
                                       <option value="">Pilih Mapel</option>
                                     <?php foreach ($data['mapel'] as $kl) {?>
-                                        <option value="<?= $kl['id']?>"><?= $kl['nama_mapel']?></option>
+                                        <option <?php if(isset($data['detail'])){ if($data['detail']['id_mapel'] == $kl['id']){ echo 'selected';} }else{ echo '';} ?> value="<?= $kl['id']?>"><?= $kl['nama_mapel']?></option>
                                     <?php } ?>
                                   </select>
 
@@ -44,7 +44,7 @@
                                   <select required name="id_guru" class="form-control custom-select">
                                       <option value="">Pilih Guru</option>
                                     <?php foreach ($data['guru'] as $kl) {?>
-                                        <option value="<?= $kl['id']?>"><?= $kl['nama']?></option>
+                                        <option <?php if(isset($data['detail'])){ if($data['detail']['id_guru'] == $kl['id']){ echo 'selected';} }else{ echo '';} ?> value="<?= $kl['id']?>"><?= $kl['nama']?></option>
                                     <?php } ?>
                                   </select>
                               </div>

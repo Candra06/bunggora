@@ -76,10 +76,10 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label>Email</label>
-                                  <input type="email" name="email" required placeholder="Masukkan email" class="form-control">
+                                  <input type="email" value="<?php if(isset($data['detail'])){ echo $data['detail']['username']; }else{ echo '';} ?>" name="email" required placeholder="Masukkan email" class="form-control">
+                                  <input type="hidden" value="<?php if(isset($data['detail'])){ echo $data['detail']['id_akun']; }else{ echo '';} ?>" name="id_akun" style="visibility:hidden;">
                               </div>
                           </div>
-                          <!--/span-->
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label>Password</label>

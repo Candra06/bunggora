@@ -45,25 +45,9 @@
                                 <td><?= $i?></td>
                                 <td><?= $dt['nama_mapel']?></td>
                                 <td><?= $dt['nama'] ?></td>
-                                <td> <a class="btn btn-info" href="Jadwal/edit/<?= $dt['id'] ?>"> <i class="fa fa-pencil"></i> Edit</a> </td>
+                                <td> <a class="btn btn-info" href="DataMengajar/edit/<?= $dt['id'] ?>"> <i class="fa fa-pencil"></i> Edit</a> </td>
                             </tr>
-                            <?php } ?>
-
-                            <!-- <tr>
-                                <td>182410101012</td>
-                                <td>Abdi Rahman</td>
-                                <td>089843368286</td>
-                                <td> <span class="label label-success">Aktif</span> </td>
-                                <td> <a class="btn btn-info" href="#"> <i class="fa fa-pencil"></i> Edit</a> </td>
-                            </tr>
-                            <tr>
-                                <td>182410101012</td>
-                                <td>Abdi Rahman</td>
-                                <td>089843368286</td>
-                                <td> <span class="label label-danger">Banned</span> </td>
-                                <td> <a class="btn btn-info" href="#"> <i class="fa fa-pencil"></i> Edit</a> </td>
-                            </tr> -->
-
+                            <?php $i++;} ?>
                         </tbody>
                     </table>
                 </div>
